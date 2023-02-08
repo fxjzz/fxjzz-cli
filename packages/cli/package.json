@@ -1,0 +1,38 @@
+{
+  "name": "@fxjzz-cli/cli",
+  "version": "0.0.0",
+  "description": "fxjzz cli",
+  "author": "lzxzz <1042183935@qq.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "type": "module",
+  "bin": {
+    "f": "bin/cli.js"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib",
+    "bin"
+  ],
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "@fxjzz-cli/init": "^0.0.0",
+    "@fxjzz-cli/utils": "^0.0.0",
+    "chalk": "^5.2.0",
+    "commander": "^10.0.0",
+    "dirname-filename-esm": "^1.1.1",
+    "fs-extra": "^11.1.0",
+    "import-local": "^3.1.0",
+    "semver": "^7.3.8"
+  },
+  "devDependencies": {
+    "execa": "^6.1.0",
+    "jest": "^29.4.1"
+  }
+}
