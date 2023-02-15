@@ -1,6 +1,8 @@
 import log from './log.js'
 import isDebug from './isDebug.js'
 import { makeInput, makeList, makeConfirm } from './inquirer.js'
+import { hasPnpm3OrLater, hasPnpmVersionLater, hasYarn } from './env.js'
+import resolvePkg from './pkg.js'
 
 function printErrorLog(e, type) {
   if (isDebug()) {
@@ -10,4 +12,4 @@ function printErrorLog(e, type) {
   }
 }
 
-export { log, isDebug, makeList, makeConfirm, makeInput, printErrorLog }
+export { resolvePkg, hasPnpm3OrLater, hasPnpmVersionLater, hasYarn, log, isDebug, makeList, makeConfirm, makeInput, printErrorLog }

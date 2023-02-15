@@ -1,0 +1,38 @@
+{
+  "name": "@fxjzz-cli/create",
+  "version": "1.0.0",
+  "description": "create command",
+  "author": "lzxzz <1042183935@qq.com>",
+  "homepage": "https://github.com/fxjzz/fxjzz-cli#readme",
+  "license": "ISC",
+  "main": "./index.js",
+  "type": "module",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "http://registry.npm.taobao.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fxjzz/fxjzz-cli.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/create.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/fxjzz/fxjzz-cli/issues"
+  },
+  "dependencies": {
+    "@fxjzz-cli/utils": "^0.0.0",
+    "chalk": "^5.2.0",
+    "figlet": "^1.5.2",
+    "fs-extra": "^11.1.0",
+    "inquirer": "^9.1.4",
+    "validate-npm-package-name": "^5.0.0"
+  }
+}

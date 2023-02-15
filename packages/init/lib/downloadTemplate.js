@@ -18,9 +18,15 @@ function makeCacheDir(targetPath) {
   }
 }
 
-async function downloadAddTemplate(targetPath, selectedTemplate) {
+async function downloadPlugins(plugins) {
+  if (plugins.ESlint === 'common') {
+
+  }
+}
+
+async function downloadAddTemplate(targetPath, selectedTemplate, plugins) {
   const { npmName } = selectedTemplate
-  console.log(selectedTemplate);
+  downloadPlugins(plugins)
   const installCommand = 'npm'
   const installArgs = ['install', `${npmName}`]
   const cwd = targetPath
@@ -34,7 +40,7 @@ export default async function downloadTemplate(selectedTemplate) {
   makeCacheDir(targetPath)
   const spinner = ora('正在下载...').start()
   try {
-    await downloadAddTemplate(targetPath, template)
+    await downloadAddTemplate(targetPath, template, plugins)
     spinner.stop()
     log.success('下载完成')
   } catch (err) {

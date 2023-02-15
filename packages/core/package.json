@@ -1,0 +1,41 @@
+{
+  "name": "@fxjzz-cli/core",
+  "version": "1.0.0",
+  "description": "a cli core to create a fe project",
+  "author": "lzxzz <1042183935@qq.com>",
+  "homepage": "https://github.com/fxjzz/fxjzz-cli#readme",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "bin": {
+    "fx": "bin/f.js"
+  },
+  "type": "module",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib",
+    "bin"
+  ],
+  "publishConfig": {
+    "registry": "http://registry.npm.taobao.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fxjzz/fxjzz-cli.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/core.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/fxjzz/fxjzz-cli/issues"
+  },
+  "engines": {
+    "node": "^12.0.0 || >= 14.0.0"
+  },
+  "dependencies": {
+    "@fxjzz-cli/create": "^1.0.0",
+    "@fxjzz-cli/utils": "^0.0.0"
+  }
+}
