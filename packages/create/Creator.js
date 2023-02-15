@@ -3,7 +3,7 @@ import chalk from 'chalk'
 import PromptModuleAPI from "./lib/promptModuleAPI.js"
 import promptModules from "./lib/promptModules/index.js"
 import { resolvePkg, hasPnpm3OrLater, hasYarn } from "@fxjzz-cli/utils"
-
+import writeFileTree from './lib/writeFileTree.js'
 
 class Creator {
   constructor(name, targetDir) {
@@ -49,6 +49,17 @@ class Creator {
       devDependencies: {},
       ...resolvePkg(this.targetDir),  //用不到感觉，解析targetDir的package.json
     }
+
+    //给pkg添加依赖
+    const deps = Object.keys(preset.plugins)
+    deps.forEach((dep) => {
+      pkg.devDependencies[dep] = '^1.0.0'
+    })
+
+    writeFileTree(this.targetDir, {
+      'package.json': JSON.stringify(pkg, null, 2)
+    })
+
 
   }
 
