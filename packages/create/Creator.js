@@ -2,7 +2,7 @@ import inquirer from "inquirer"
 import chalk from 'chalk'
 import PromptModuleAPI from "./lib/promptModuleAPI.js"
 import promptModules from "./lib/promptModules/index.js"
-import { resolvePkg, hasPnpm3OrLater, hasYarn } from "@fxjzz-cli/utils"
+import { resolvePkg, hasPnpm3OrLater, hasYarn, hasPnpmVersionOrLater } from "@fxjzz-cli/utils"
 import writeFileTree from './lib/writeFileTree.js'
 
 class Creator {
@@ -60,7 +60,17 @@ class Creator {
       'package.json': JSON.stringify(pkg, null, 2)
     })
 
+    // generate a .npmrc file for pnpm, to persist the `shamefully-flatten` flag
+    if (packageManager === 'pnpm') {
+      const pnpmConfig = hasPnpmVersionOrLater('4.0.0')
+        ? // pnpm v7 makes breaking change to set strict-peer-dependencies=true by default, which may cause some problems when installing
+        'shamefully-hoist=true\nstrict-peer-dependencies=false\n'
+        : 'shamefully-flatten=true\n';
 
+      writeFileTree(this.targetDir, {
+        '.npmrc': pnpmConfig,
+      });
+    }
   }
 
 
