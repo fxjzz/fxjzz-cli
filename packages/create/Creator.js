@@ -1,9 +1,11 @@
 import inquirer from "inquirer"
 import chalk from 'chalk'
+import { execa } from 'execa'
+import { wrapLoading, commandSpawn, hasGit, hasProjectGit, resolvePkg, hasPnpm3OrLater, hasYarn, hasPnpmVersionLater } from "@fxjzz-cli/utils"
 import PromptModuleAPI from "./lib/promptModuleAPI.js"
 import promptModules from "./lib/promptModules/index.js"
-import { resolvePkg, hasPnpm3OrLater, hasYarn, hasPnpmVersionOrLater } from "@fxjzz-cli/utils"
 import writeFileTree from './lib/writeFileTree.js'
+
 
 class Creator {
   constructor(name, targetDir) {
@@ -62,7 +64,7 @@ class Creator {
 
     // generate a .npmrc file for pnpm, to persist the `shamefully-flatten` flag
     if (packageManager === 'pnpm') {
-      const pnpmConfig = hasPnpmVersionOrLater('4.0.0')
+      const pnpmConfig = hasPnpmVersionLater('4.0.0')
         ? // pnpm v7 makes breaking change to set strict-peer-dependencies=true by default, which may cause some problems when installing
         'shamefully-hoist=true\nstrict-peer-dependencies=false\n'
         : 'shamefully-flatten=true\n';
@@ -71,6 +73,18 @@ class Creator {
         '.npmrc': pnpmConfig,
       });
     }
+
+    const shouldInitGit = this.shouldInitGit(opts)
+    if (shouldInitGit) {
+      console.log(`🗃  Initializing git repository...`);
+      await execa('git init', { cwd: this.targetDir })
+    }
+
+    //install plugins 
+    await wrapLoading(
+      () => commandSpawn(packageManager, ['install'], { cwd: this.targetDir }),
+      `⚙\u{fe0f}  `
+    );
   }
 
 
@@ -124,8 +138,17 @@ class Creator {
   }
 
   getFinalPrompts() {
-    console.log('123', [this.presetPrompt, this.featurePrompt, ...this.injectedPrompts]);
     return [this.presetPrompt, this.featurePrompt, ...this.injectedPrompts]
+  }
+
+  shouldInitGit(opts) {
+    if (!hasGit) {
+      return false
+    }
+    if (opts.git) {
+      return true
+    }
+    return !hasProjectGit(this.targetDir)
   }
 }
 

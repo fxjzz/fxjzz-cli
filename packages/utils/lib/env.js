@@ -15,11 +15,10 @@ function getPnpmVersion() {
   try {
     pnpmVersion = execSync('pnpm --version', { stdio: ['pipe', 'pipe', 'ignore'] }).toString()
   } catch (e) { }
-  return pnpmVersion || '0.0.0'
+  return pnpmVersion
 }
-export const hasPnpmVersionLater = (version) => {
-  semver.gte(getPnpmVersion(), version)
-}
+export const hasPnpmVersionLater = (version) => semver.gte(getPnpmVersion(), version)
+
 export const hasPnpm3OrLater = () => hasPnpmVersionLater('3.0.0')
 
 
