@@ -5,7 +5,7 @@ import { wrapLoading, commandSpawn, hasGit, hasProjectGit, resolvePkg, hasPnpm3O
 import PromptModuleAPI from "./lib/promptModuleAPI.js"
 import promptModules from "./lib/promptModules/index.js"
 import writeFileTree from './lib/writeFileTree.js'
-
+import sortObject from "./lib/sortObject.js"
 
 class Creator {
   constructor(name, targetDir) {
@@ -85,6 +85,15 @@ class Creator {
       () => commandSpawn(packageManager, ['install'], { cwd: this.targetDir }),
       `⚙\u{fe0f}  `
     );
+
+    console.log(`🚀  Invoking generators...`);
+    //解析插件
+    const plugins = await this.resolvePlugins(preset.plugins)
+  }
+
+  resolvePlugins(rawPlugins) {
+    rarPlugins = sortObject(rawPlugins, ['@fxjzz-cli/cli-service'])
+    const plugins = []
   }
 
 
