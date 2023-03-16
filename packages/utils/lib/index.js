@@ -5,6 +5,7 @@ import { hasPnpm3OrLater, hasPnpmVersionLater, hasYarn, hasGit, hasProjectGit } 
 import resolvePkg from './pkg.js'
 import commandSpawn from './commandSpawn.js'
 import wrapLoading from './wrapLoading.js'
+import loadModule from './module.js'
 
 function printErrorLog(e, type) {
   if (isDebug()) {
@@ -14,4 +15,4 @@ function printErrorLog(e, type) {
   }
 }
 
-export { wrapLoading, hasProjectGit, hasGit, commandSpawn, resolvePkg, hasPnpm3OrLater, hasPnpmVersionLater, hasYarn, log, isDebug, makeList, makeConfirm, makeInput, printErrorLog }
+export { loadModule, wrapLoading, hasProjectGit, hasGit, commandSpawn, resolvePkg, hasPnpm3OrLater, hasPnpmVersionLater, hasYarn, log, isDebug, makeList, makeConfirm, makeInput, printErrorLog }

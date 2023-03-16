@@ -1,20 +1,20 @@
 class promptModuleAPI {
   constructor(creator) {
-    this.creator = creator
+    this.creator = creator;
   }
 
   //注入feature
   injectFeature(feature) {
-    this.creator.featurePrompt.choices?.push(feature)
+    this.creator.featurePrompt.choices?.push(feature);
   }
 
   injectPrompt(prompt) {
-    this.creator.injectPrompts.push(prompt)
+    this.creator.injectedPrompts.push(prompt);
   }
 
   onPromptComplete(cb) {
-    this.creator.promptCompleteCbs.push(cb)
+    this.creator.promptCompleteCbs.push(cb);
   }
 }
 
-export default promptModuleAPI
+export default promptModuleAPI;
