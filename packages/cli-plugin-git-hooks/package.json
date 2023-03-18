@@ -1,0 +1,31 @@
+{
+  "name": "@fxjzz-cli/cli-plugin-git-hooks",
+  "version": "1.0.4",
+  "description": "fxjzz-cli plugin gitHooks",
+  "author": "lzxzz <1042183935@qq.com>",
+  "homepage": "https://github.com/fxjzz/fxjzz-cli#readme",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "type": "module",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fxjzz/fxjzz-cli.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/cli-plugin-git-hooks.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/fxjzz/fxjzz-cli/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
+
