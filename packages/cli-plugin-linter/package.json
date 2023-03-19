@@ -1,7 +1,7 @@
 {
-  "name": "@fxjzz-cli/cli-service",
-  "version": "1.0.9",
-  "description": "cli-service",
+  "name": "@fxjzz-cli/cli-plugin-linter",
+  "version": "1.0.12",
+  "description": "fxjzz-cli plugin eslint + prettier",
   "author": "lzxzz <1042183935@qq.com>",
   "homepage": "https://github.com/fxjzz/fxjzz-cli#readme",
   "license": "ISC",
@@ -19,7 +19,7 @@
     "url": "git+https://github.com/fxjzz/fxjzz-cli.git"
   },
   "scripts": {
-    "test": "node ./__tests__/cli-service.test.js"
+    "test": "node ./__tests__/cli-plugin-git-hooks.test.js"
   },
   "bugs": {
     "url": "https://github.com/fxjzz/fxjzz-cli/issues"
