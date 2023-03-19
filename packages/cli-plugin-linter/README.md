@@ -1,11 +1,4 @@
-# `cli-plugin-eslint`
+# `cli-plugin-linter`
 
-> TODO: description
+linter 工具链插件
 
-## Usage
-
-```
-const cliPluginEslint = require('cli-plugin-eslint');
-
-// TODO: DEMONSTRATE API
-```

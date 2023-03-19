@@ -1,8 +1,8 @@
 {
   "name": "@fxjzz-cli/cli-plugin-css-preprocessor",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "fxjzz-cli plugin css-preprocessor",
-  "author": "lzxzz <1042183935@qq.com>",
+  "author": "fxjzz <1042183935@qq.com>",
   "homepage": "https://github.com/fxjzz/fxjzz-cli#readme",
   "license": "ISC",
   "main": "lib/index.js",

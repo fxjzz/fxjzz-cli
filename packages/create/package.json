@@ -15,7 +15,7 @@
     "lib"
   ],
   "publishConfig": {
-    "registry": "http://registry.npm.taobao.org/"
+    "access": "public"
   },
   "repository": {
     "type": "git",
@@ -39,3 +39,4 @@
     "validate-npm-package-name": "^5.0.0"
   }
 }
+

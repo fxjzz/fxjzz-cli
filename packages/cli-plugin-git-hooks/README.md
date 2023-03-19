@@ -1,11 +1,4 @@
 # `cli-plugin-git-hooks`
 
-> TODO: description
+gitHooks 插件
 
-## Usage
-
-```
-const cliPluginGitHooks = require('cli-plugin-git-hooks');
-
-// TODO: DEMONSTRATE API
-```

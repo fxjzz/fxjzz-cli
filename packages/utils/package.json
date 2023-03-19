@@ -1,6 +1,6 @@
 {
   "name": "@fxjzz-cli/utils",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "fxjzz-cli utils",
   "author": "lzxzz <1042183935@qq.com>",
   "homepage": "",
@@ -14,9 +14,6 @@
   "files": [
     "lib"
   ],
-  "publishConfig": {
-    "registry": "http://registry.npm.taobao.org/"
-  },
   "scripts": {
     "test": "node ./__tests__/utils.test.js"
   },
@@ -27,5 +24,9 @@
     "ora": "^6.1.2",
     "read-pkg": "^7.1.0",
     "semver": "^7.3.8"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
+

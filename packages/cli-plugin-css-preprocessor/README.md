@@ -1,11 +1,4 @@
 # `cli-plugin-css-preprocessor`
 
-> TODO: description
+css 预处理器插件
 
-## Usage
-
-```
-const cliPluginCssPreprocessor = require('cli-plugin-css-preprocessor');
-
-// TODO: DEMONSTRATE API
-```

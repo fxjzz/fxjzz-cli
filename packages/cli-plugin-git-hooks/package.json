@@ -1,8 +1,8 @@
 {
   "name": "@fxjzz-cli/cli-plugin-git-hooks",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "fxjzz-cli plugin gitHooks",
-  "author": "lzxzz <1042183935@qq.com>",
+  "author": "fxjzz <1042183935@qq.com>",
   "homepage": "https://github.com/fxjzz/fxjzz-cli#readme",
   "license": "ISC",
   "main": "lib/index.js",
