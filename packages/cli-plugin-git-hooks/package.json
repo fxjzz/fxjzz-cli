@@ -1,6 +1,6 @@
 {
   "name": "@fxjzz-cli/cli-plugin-git-hooks",
-  "version": "1.0.5",
+  "version": "1.0.0",
   "description": "fxjzz-cli plugin gitHooks",
   "author": "fxjzz <1042183935@qq.com>",
   "homepage": "https://github.com/fxjzz/fxjzz-cli#readme",
@@ -28,4 +28,3 @@
     "access": "public"
   }
 }
-
