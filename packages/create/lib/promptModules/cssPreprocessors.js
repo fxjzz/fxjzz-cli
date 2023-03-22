@@ -25,9 +25,9 @@ export default (cli) => {
     ],
   });
   cli.onPromptComplete((answers, opts) => {
-    console.log("answersssss", answers);
     if (answers.cssPreprocessor) {
       opts.plugins["@fxjzz-cli/cli-plugin-css-preprocessor"] = {};
     }
   });
 };
+

@@ -1,7 +1,7 @@
 {
-  "name": "@fxjzz-cli/cli-plugin-linter",
-  "version": "1.0.0",
-  "description": "fxjzz-cli plugin eslint + prettier",
+  "name": "@fxjzz-cli/cli-plugin-eslint",
+  "version": "1.0.15",
+  "description": "fxjzz-cli plugin linter",
   "author": "fxjzz <1042183935@qq.com>",
   "homepage": "https://github.com/fxjzz/fxjzz-cli#readme",
   "license": "ISC",
@@ -28,3 +28,4 @@
     "access": "public"
   }
 }
+

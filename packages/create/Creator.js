@@ -48,7 +48,6 @@ class Creator {
       projectName: this.name,
       ...preset,
     };
-    console.log("preset", preset);
 
     const packageManager = hasPnpm3OrLater()
       ? "pnpm"
@@ -63,7 +62,7 @@ class Creator {
       version: "0.1.0",
       private: true,
       devDependencies: {},
-      ...resolvePkg(this.targetDir), //用不到感觉，解析targetDir的package.json
+      ...resolvePkg(this.targetDir), //解析targetDir的package.json
     };
 
     //给pkg添加依赖
@@ -101,12 +100,10 @@ class Creator {
     );
 
     console.log(`🚀  Invoking generators...`);
+    console.log("preset.plugins", preset.plugins);
     //解析插件
     const plugins = await this.resolvePlugins(preset.plugins);
-    console.log("answers", this.answers);
-    console.log("targetDir", this.targetDir);
-    console.log("pkg", pkg);
-
+    console.log("resolvePlugins", plugins);
     const generator = new Generator(this.targetDir, {
       pkg,
       plugins,
@@ -131,7 +128,6 @@ class Creator {
       const options = { ...rawPlugins[id], projectName: this.name };
       plugins.push({ id, apply, options, answers: this.answers });
     }
-    console.log("plugins", plugins);
     return plugins;
   }
 
