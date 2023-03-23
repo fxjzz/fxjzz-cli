@@ -90,6 +90,7 @@ const getDeps = (answers) => {
       prettier: "^2.8.6",
       "eslint-config-prettier": "^8.8.0",
       "eslint-plugin-prettier": "^4.2.1",
+      "vite-plugin-eslint": "^1.8.1",
     },
   };
   return deps;

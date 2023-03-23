@@ -1,11 +1,4 @@
 # `create`
 
-> TODO: description
+This is the create command package of fxjzz scaffolding
 
-## Usage
-
-```
-const create = require('create');
-
-// TODO: DEMONSTRATE API
-```

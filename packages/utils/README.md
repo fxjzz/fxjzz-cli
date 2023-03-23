@@ -1,11 +1,4 @@
 # `utils`
 
-> TODO: description
+fxjzz-cli-utils
 
-## Usage
-
-```
-const utils = require('utils');
-
-// TODO: DEMONSTRATE API
-```

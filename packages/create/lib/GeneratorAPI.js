@@ -58,5 +58,9 @@ export default class GeneratorAPI {
   injectFileMiddleware(middleware) {
     this.generator.fileMiddleWares.push(middleware);
   }
+
+  injectImports(path, content) {
+    this.generator.imports[path] = content;
+  }
 }
 

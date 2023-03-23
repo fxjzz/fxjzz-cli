@@ -1,11 +1,4 @@
 # `cli-service`
 
-> TODO: description
+service , add template
 
-## Usage
-
-```
-const cliService = require('cli-service');
-
-// TODO: DEMONSTRATE API
-```

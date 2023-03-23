@@ -13,6 +13,8 @@ export default class Generator {
 
     this.fileMiddleWares = [];
     this.files = {};
+
+    this.imports = {};
   }
 
   async generate() {
@@ -42,16 +44,6 @@ export default class Generator {
       //执行回调函数 ，把内容写入对象
       await middleWare(files);
     }
-
-    console.log("files", Object.keys(files));
-    // Object.keys(files).forEach((f) => {
-    //   const imports = this.imports[f]
-    //   if (imports && Object.keys(imports).length > 0) {
-    //     files[file] = injectImportsToFile(files[file], imports) || files[file];
-    //   }
-    // })
-
-    //TODO
   }
 }
 

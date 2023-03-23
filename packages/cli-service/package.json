@@ -1,6 +1,6 @@
 {
   "name": "@fxjzz-cli/cli-service",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "cli-service",
   "author": "lzxzz <1042183935@qq.com>",
   "homepage": "https://github.com/fxjzz/fxjzz-cli#readme",
@@ -28,3 +28,4 @@
     "access": "public"
   }
 }
+

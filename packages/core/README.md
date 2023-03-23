@@ -1,11 +1,4 @@
 # `core`
 
-> TODO: description
+core , pnpm i @fxjzz-cli/core
 
-## Usage
-
-```
-const core = require('core');
-
-// TODO: DEMONSTRATE API
-```

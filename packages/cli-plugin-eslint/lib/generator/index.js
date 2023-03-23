@@ -8,6 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export default (api, options, answers) => {
+  const tsorjs = answers.features.includes("TypeScript") ? "ts" : "js";
   const devDependencies = getDeps(answers);
   const eslintConfig = config(answers);
   fs.writeFileSync(
@@ -22,5 +23,9 @@ export default (api, options, answers) => {
     scripts: {
       "lint:script": "eslint --ext .js,.jsx,.ts,.tsx --fix --quiet ./",
     },
+  });
+  api.injectImport(`vite.config.${tsorjs}`, {
+    import: "viteEslint",
+    from: "vite-plugin-eslint",
   });
 };

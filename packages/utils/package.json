@@ -1,10 +1,10 @@
 {
   "name": "@fxjzz-cli/utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "fxjzz-cli utils",
   "author": "lzxzz <1042183935@qq.com>",
   "homepage": "",
-  "license": "ISC",
+  "license": "MIT",
   "main": "lib/index.js",
   "type": "module",
   "directories": {
@@ -29,3 +29,4 @@
     "access": "public"
   }
 }
+
