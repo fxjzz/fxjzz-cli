@@ -85,6 +85,12 @@ const getDeps = (answers) => {
   };
   const deps = {
     ...DEPS_MAP[preset][eslintConfig],
+    //prettier配置
+    ...{
+      prettier: "^2.8.6",
+      "eslint-config-prettier": "^8.8.0",
+      "eslint-plugin-prettier": "^4.2.1",
+    },
   };
   return deps;
 };

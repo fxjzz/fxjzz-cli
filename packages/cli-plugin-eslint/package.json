@@ -1,6 +1,6 @@
 {
   "name": "@fxjzz-cli/cli-plugin-eslint",
-  "version": "1.0.15",
+  "version": "1.0.17",
   "description": "fxjzz-cli plugin linter",
   "author": "fxjzz <1042183935@qq.com>",
   "homepage": "https://github.com/fxjzz/fxjzz-cli#readme",

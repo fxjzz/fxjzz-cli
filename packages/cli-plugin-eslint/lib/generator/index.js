@@ -19,5 +19,8 @@ export default (api, options, answers) => {
     devDependencies: {
       ...devDependencies,
     },
+    scripts: {
+      "lint:script": "eslint --ext .js,.jsx,.ts,.tsx --fix --quiet ./",
+    },
   });
 };

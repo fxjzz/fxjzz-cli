@@ -12,14 +12,20 @@ const config = (answers) => {
         preset === "React" ? "react/recommended" : "vue/vue3-essential"
       }`,
       `${eslintConfig}`,
+      "prettier",
+      "plugin:prettier/recommended",
     ],
     overrides: [],
     parserOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
     },
-    plugins: [`${preset.toLowerCase()}`],
-    rules: {},
+    plugins: [`${preset.toLowerCase()}`, "prettier"],
+    rules: {
+      "prettier/prettier": "error",
+      quotes: ["error", "single"],
+      semi: ["error", "always"],
+    },
   };
   if (eslintConfig === "airbnb" && preset === "Vue") {
     defaultConfig.extends = ["plugin:vue/vue3-essential", "airbnb-base"];
