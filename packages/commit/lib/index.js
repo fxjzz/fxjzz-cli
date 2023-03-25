@@ -1,21 +1,28 @@
-import { homedir } from "node:os";
-import fs from "node:fs";
+import fse from "fs-extra";
 import path from "node:path";
-import { initGitServer } from "@fxjzz-cli/utils";
-const commit = () => {
-  const gitPlatform = createRemoteRepo();
-  console.log(gitPlatform);
-};
-async function createRemoteRepo() {
-  await initGitServer();
-  // const home = homedir();
-  // const CACHE_DIR = ".fxjzz-cli";
-  // const FILE_GIT_PLATFORM = ".git_platform";
-  // let filePath = path.resolve(home, CACHE_DIR, FILE_GIT_PLATFORM);
-  // if (fs.existsSync(filePath)) {
-  //   return fs.readFileSync(filePath).toString();
-  // }
-  // return null;
+import {
+  initGitCreator,
+  initGitType,
+  createRemoteRepo,
+} from "@fxjzz-cli/utils";
+
+async function initRemoteRepo() {
+  //实例化git对象
+  const gitAPI = await initGitCreator();
+
+  //选择git仓库类型
+  await initGitType(gitAPI);
+
+  //创建远程仓库
+  const dir = process.cwd();
+  const pkg = fse.readJsonSync(path.resolve(dir, "package.json"));
+
+  await createRemoteRepo(gitAPI, pkg.name);
 }
+
+const commit = () => {
+  const gitPlatform = initRemoteRepo();
+};
+
 export default commit;
 

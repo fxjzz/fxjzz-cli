@@ -13,6 +13,18 @@ function createPlatformPath() {
   return path.resolve(homedir(), TEMP_HOME, TEMP_PLATFORM);
 }
 
+function createTokenPath() {
+  return path.resolve(homedir(), TEMP_HOME, TEMP_TOKEN);
+}
+
+function createOwnPath() {
+  return path.resolve(homedir(), TEMP_HOME, TEMP_OWN);
+}
+
+function createLoginPath() {
+  return path.resolve(homedir(), TEMP_HOME, TEMP_LOGIN);
+}
+
 function getGitPlatform() {
   if (pathExistsSync(createPlatformPath())) {
     return fs.readFileSync(createPlatformPath()).toString();
@@ -20,4 +32,26 @@ function getGitPlatform() {
   return null;
 }
 
-export { getGitPlatform };
+function getGitOwn() {
+  if (pathExistsSync(createOwnPath())) {
+    return fs.readFileSync(createOwnPath()).toString();
+  }
+  return null;
+}
+
+function getGitLogin() {
+  if (pathExistsSync(createLoginPath())) {
+    return fs.readFileSync(createLoginPath()).toString();
+  }
+  return null;
+}
+
+export {
+  createPlatformPath,
+  createTokenPath,
+  createOwnPath,
+  createLoginPath,
+  getGitPlatform,
+  getGitOwn,
+  getGitLogin,
+};

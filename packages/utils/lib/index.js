@@ -12,7 +12,11 @@ import resolvePkg from "./pkg.js";
 import commandSpawn from "./commandSpawn.js";
 import wrapLoading from "./wrapLoading.js";
 import loadModule from "./module.js";
-import initGitServer from "./git/GitUtils.js";
+import {
+  initGitCreator,
+  initGitType,
+  createRemoteRepo,
+} from "./git/GitUtils.js";
 
 function printErrorLog(e, type) {
   if (isDebug()) {
@@ -23,7 +27,9 @@ function printErrorLog(e, type) {
 }
 
 export {
-  initGitServer,
+  initGitCreator,
+  initGitType,
+  createRemoteRepo,
   loadModule,
   wrapLoading,
   hasProjectGit,
@@ -40,3 +46,4 @@ export {
   makeInput,
   printErrorLog,
 };
+
