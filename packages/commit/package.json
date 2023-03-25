@@ -1,7 +1,7 @@
 {
-  "name": "@fxjzz-cli/cli-plugin-git-hooks",
+  "name": "@fxjzz-cli/commit",
   "version": "1.0.0",
-  "description": "fxjzz-cli plugin gitHooks",
+  "description": "commit",
   "author": "fxjzz <1042183935@qq.com>",
   "homepage": "https://github.com/fxjzz/fxjzz-cli#readme",
   "license": "MIT",
@@ -19,13 +19,12 @@
     "url": "git+https://github.com/fxjzz/fxjzz-cli.git"
   },
   "scripts": {
-    "test": "node ./__tests__/cli-plugin-git-hooks.test.js"
+    "test": "node ./__tests__/commit.test.js"
   },
   "bugs": {
     "url": "https://github.com/fxjzz/fxjzz-cli/issues"
   },
-  "publishConfig": {
-    "access": "public"
+  "dependencies": {
+    "@fxjzz-cli/utils": "^1.0.1"
   }
 }
-

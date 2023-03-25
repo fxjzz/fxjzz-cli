@@ -4,7 +4,7 @@
   "description": "fxjzz-cli plugin linter",
   "author": "fxjzz <1042183935@qq.com>",
   "homepage": "https://github.com/fxjzz/fxjzz-cli#readme",
-  "license": "ISC",
+  "license": "MIT",
   "main": "lib/index.js",
   "type": "module",
   "directories": {

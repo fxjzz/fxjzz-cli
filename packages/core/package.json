@@ -4,7 +4,7 @@
   "description": "a cli core to create a fe project",
   "author": "lzxzz <1042183935@qq.com>",
   "homepage": "https://github.com/fxjzz/fxjzz-cli#readme",
-  "license": "ISC",
+  "license": "MIT",
   "main": "lib/index.js",
   "bin": {
     "fx": "bin/f.js"
@@ -32,11 +32,13 @@
     "node": "^12.0.0 || >= 14.0.0"
   },
   "dependencies": {
+    "@fxjzz-cli/commit": "^1.0.0",
     "@fxjzz-cli/create": "^1.0.0",
-    "@fxjzz-cli/utils": "^0.0.0"
+    "@fxjzz-cli/utils": "^0.0.0",
+    "commander": "^10.0.0",
+    "dirname-filename-esm": "^1.1.1"
   },
   "publishConfig": {
     "access": "public"
   }
 }
-

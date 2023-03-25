@@ -21,7 +21,6 @@ export default class Generator {
     await this.initPlugins();
     await this.resolveFiles();
     this.files["package.json"] = `${JSON.stringify(this.pkg, null, 2)}\n`;
-    console.log(this.files["package.json"]);
     writeFileTree(this.targetDir, this.files);
   }
 
