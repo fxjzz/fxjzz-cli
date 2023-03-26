@@ -7,6 +7,7 @@ import {
   createRemoteRepo,
   clearCache,
 } from "@fxjzz-cli/utils";
+import simpleGit from "simple-git";
 
 class CommitCommand extends Command {
   get command() {
@@ -83,7 +84,20 @@ class CommitCommand extends Command {
 
   async initLocal() {
     const repoURL = this.gitAPI.getRepoURL(`${this.gitAPI.login}/${this.name}`);
-    console.log(repoURL);
+
+    //初始化git对象 引入simple-git库
+    this.git = simpleGit(process.cwd());
+    if (!fse.existsSync(path.resolve(process.cwd(), ".git"))) {
+      console.log("初始化git");
+      await this.git.init();
+      console.log("初始化成功");
+    }
+
+    const remotes = await this.git.getRemotes();
+    if (!remotes.find((remote) => remote.name === "origin")) {
+      this.git.addRemote("origin", repoURL);
+      console.log("添加git remote");
+    }
   }
 }
 
