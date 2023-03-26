@@ -1,17 +1,9 @@
 import { makeList } from "../inquirer.js";
-import {
-  getGitPlatform,
-  getGitOwn,
-  getGitLogin,
-  clearCache,
-} from "./GitServer.js";
+import { getGitPlatform, getGitOwn, getGitLogin } from "./GitServer.js";
 import Github from "./Github.js";
 import Gitee from "./Gitee.js";
 
 export async function initGitCreator(clear) {
-  if (clear === true) {
-    clearCache();
-  }
   let platform = getGitPlatform();
   if (!platform) {
     platform = await makeList({

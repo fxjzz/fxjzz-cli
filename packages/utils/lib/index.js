@@ -17,6 +17,7 @@ import {
   initGitType,
   createRemoteRepo,
 } from "./git/GitUtils.js";
+import { clearCache } from "./git/GitServer.js";
 
 function printErrorLog(e, type) {
   if (isDebug()) {
@@ -28,6 +29,7 @@ function printErrorLog(e, type) {
 
 export {
   initGitCreator,
+  clearCache,
   initGitType,
   createRemoteRepo,
   loadModule,

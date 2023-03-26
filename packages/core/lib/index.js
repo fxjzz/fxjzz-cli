@@ -5,7 +5,7 @@ import { fileURLToPath } from "url";
 import path, { dirname } from "path";
 import { log } from "@fxjzz-cli/utils";
 import create from "@fxjzz-cli/create";
-import commit from "@fxjzz-cli/commit";
+import createCommitCommand from "@fxjzz-cli/commit";
 
 //当前终端目录
 const __filename = fileURLToPath(import.meta.url);
@@ -39,13 +39,7 @@ export default function (argv) {
       create(name, opts);
     });
 
-  program
-    .command("commit")
-    .description("todo")
-    .option("-c, --clear", "clear your cache")
-    .action(({ clear }) => {
-      commit(clear);
-    });
+  createCommitCommand(program);
   program.parse(process.argv);
 }
 
