@@ -45,7 +45,9 @@ class Gitee extends GitCreator {
   }
 
   getUser() {
-    return this.get("/user");
+    return this.get("/user").catch(() => {
+      throw new Error("请输入合适 或 正确的token");
+    });
   }
 
   getOrg() {

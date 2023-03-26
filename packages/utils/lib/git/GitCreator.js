@@ -31,6 +31,12 @@ class GitCreator {
       name: "token",
       type: "password",
       message: "请输入token信息",
+      validate: (val) => {
+        if (val.length > 0) return true;
+        else {
+          return "请输入token";
+        }
+      },
     });
   }
 

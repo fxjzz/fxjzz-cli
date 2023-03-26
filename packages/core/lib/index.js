@@ -42,8 +42,9 @@ export default function (argv) {
   program
     .command("commit")
     .description("todo")
-    .action((name, opts) => {
-      commit(name, opts);
+    .option("-c, --clear", "clear your cache")
+    .action(({ clear }) => {
+      commit(clear);
     });
   program.parse(process.argv);
 }
