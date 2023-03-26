@@ -41,12 +41,12 @@ class CommitCommand extends Command {
     this.gitAPI = await initGitCreator();
 
     //选择git仓库类型
-    await initGitType(gitAPI);
+    await initGitType(this.gitAPI);
 
     //创建远程仓库
     const dir = process.cwd();
     const pkg = fse.readJsonSync(path.resolve(dir, "package.json"));
-
+    this.name = pkg.name;
     await createRemoteRepo(this.gitAPI, pkg.name);
 
     //生成.gitignore文件
@@ -79,6 +79,11 @@ class CommitCommand extends Command {
       fse.writeFileSync(gitIgnorePath, ignoreContent);
       console.log("chenggogn ");
     }
+  }
+
+  async initLocal() {
+    const repoURL = this.gitAPI.getRepoURL(`${this.gitAPI.login}/${this.name}`);
+    console.log(repoURL);
   }
 }
 

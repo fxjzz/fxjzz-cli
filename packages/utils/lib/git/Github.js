@@ -60,6 +60,10 @@ class Github extends GitCreator {
   getOrg() {
     return this.get("/user/orgs");
   }
+  //git@github.com:fxjzz/zzz.git
+  getRepoURL(name) {
+    return `git@github.com:${name}.git`;
+  }
 
   getRepo(owner, repo) {
     return this.get(

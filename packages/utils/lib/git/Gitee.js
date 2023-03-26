@@ -54,6 +54,10 @@ class Gitee extends GitCreator {
     return this.get("/user/orgs");
   }
 
+  getRepoURL(name) {
+    return `git@gitee.com:${name}.git`;
+  }
+
   getRepo(owner, repo) {
     return this.get(`/repos/${owner}/${repo}`).catch((err) => {
       return null;
