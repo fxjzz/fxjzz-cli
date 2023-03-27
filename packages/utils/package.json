@@ -2,7 +2,7 @@
   "name": "@fxjzz-cli/utils",
   "version": "1.0.1",
   "description": "fxjzz-cli utils",
-  "author": "lzxzz <1042183935@qq.com>",
+  "author": "fxjzz <1042183935@qq.com>",
   "homepage": "",
   "license": "MIT",
   "main": "lib/index.js",
@@ -32,3 +32,4 @@
     "access": "public"
   }
 }
+

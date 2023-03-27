@@ -1,8 +1,8 @@
 {
   "name": "@fxjzz-cli/cli-service",
-  "version": "1.0.1",
+  "version": "1.0.10",
   "description": "cli-service",
-  "author": "lzxzz <1042183935@qq.com>",
+  "author": "fxjzz <1042183935@qq.com>",
   "homepage": "https://github.com/fxjzz/fxjzz-cli#readme",
   "license": "MIT",
   "main": "lib/index.js",

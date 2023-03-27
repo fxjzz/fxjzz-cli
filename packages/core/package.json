@@ -1,13 +1,13 @@
 {
   "name": "@fxjzz-cli/core",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a cli core to create a fe project",
   "author": "lzxzz <1042183935@qq.com>",
   "homepage": "https://github.com/fxjzz/fxjzz-cli#readme",
   "license": "MIT",
   "main": "lib/index.js",
   "bin": {
-    "fx": "bin/f.js"
+    "f": "bin/f.js"
   },
   "type": "module",
   "directories": {
@@ -42,3 +42,4 @@
     "access": "public"
   }
 }
+
