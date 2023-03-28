@@ -1,8 +1,8 @@
 {
   "name": "@fxjzz-cli/create",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "create command",
-  "author": "lzxzz <1042183935@qq.com>",
+  "author": "fxjzz <1042183935@qq.com>",
   "homepage": "https://github.com/fxjzz/fxjzz-cli#readme",
   "license": "MIT",
   "main": "./index.js",
@@ -12,7 +12,9 @@
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "lib",
+    "Creator.js",
+    "index.js"
   ],
   "publishConfig": {
     "access": "public"
