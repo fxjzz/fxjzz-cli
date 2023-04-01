@@ -100,10 +100,8 @@ class Creator {
     );
 
     console.log(`🚀  Invoking generators...`);
-    console.log("preset.plugins", preset.plugins);
     //解析插件
     const plugins = await this.resolvePlugins(preset.plugins);
-    console.log("resolvePlugins", plugins);
     const generator = new Generator(this.targetDir, {
       pkg,
       plugins,
@@ -162,7 +160,6 @@ class Creator {
   async promptAndResolvePreset() {
     //定义交互框架
     const answers = await inquirer.prompt(this.getFinalPrompts());
-    console.log("answers", answers);
     this.answers = answers;
     const preset = {
       useConfigFiles: true,
