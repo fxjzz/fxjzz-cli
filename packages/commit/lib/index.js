@@ -1,6 +1,7 @@
 import fse from "fs-extra";
 import semver from "semver";
 import path from "node:path";
+import { homedir } from "node:os";
 import Command from "@fxjzz-cli/command";
 import {
   log,
@@ -370,7 +371,11 @@ class CommitCommand extends Command {
   }
 }
 
+function createCacheFile() {
+  fse.ensureDirSync(`${homedir()}/.fxjzz-cli`);
+}
 function Commit(instance) {
+  createCacheFile();
   return new CommitCommand(instance);
 }
 
