@@ -68,8 +68,7 @@ class Gitee extends GitCreator {
     // 检查远程仓库是否存在，如果存在，则跳过创建
     const repo = await this.getRepo(this.login, name);
     if (!repo) {
-      console.log(`正在创建远程仓库${name}......`);
-      console.log(this.own);
+      log.info(`正在创建远程仓库${name}......`);
       if (this.own === "user") {
         return this.post("/user/repos", { name });
       } else if (this.own === "org") {

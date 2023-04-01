@@ -94,9 +94,9 @@ class CommitCommand extends Command {
     *.sln
     *.sw?`;
     if (!fse.existsSync(gitIgnorePath)) {
-      console.log("创建gitignore文件");
+      log.info("创建.gitignore文件");
       fse.writeFileSync(gitIgnorePath, ignoreContent);
-      console.log("chenggogn ");
+      log.success("创建成功!");
     }
   }
   //2
@@ -106,16 +106,16 @@ class CommitCommand extends Command {
     //初始化git对象 引入simple-git库
     this.git = simpleGit(process.cwd());
     if (!fse.existsSync(path.resolve(process.cwd(), ".git"))) {
-      console.log("初始化git");
+      log.info("正在初始化git...");
       await this.git.init();
-      console.log("初始化成功");
+      log.success("初始化成功");
     }
 
     const remotes = await this.git.getRemotes();
     //没有origin分支则执行
     if (!remotes.find((remote) => remote.name === "origin")) {
       this.git.addRemote("origin", repoURL);
-      console.log("添加git remote");
+      log.info("添加git remote");
 
       //检查本地 未提交信息并提交
       await this.checkNotCommitted();
@@ -156,24 +156,24 @@ class CommitCommand extends Command {
   }
 
   async checkTag() {
-    console.log("获取远程 tag 列表");
+    log.info("获取远程 tag 列表");
     const tag = `release/${this.version}`;
     const tagList = await this.getRemoteBranchList("release");
     if (tagList.includes(this.version)) {
-      console.log("远程 tag 已存在", tag);
+      log.info("远程 tag 已存在", tag);
       await this.git.push(["origin", `:refs/tags/${tag}`]);
-      console.log("远程 tag 已删除", tag);
+      log.info("远程 tag 已删除", tag);
     }
     const localTagList = await this.git.tags();
     if (localTagList.all.includes(tag)) {
-      console.log("本地 tag 已存在", tag);
+      log.info("本地 tag 已存在", tag);
       await this.git.tag(["-d", tag]);
-      console.log("本地 tag 已删除", tag);
+      log.info("本地 tag 已删除", tag);
     }
     await this.git.addTag(tag);
-    console.log("本地 tag 创建成功", tag);
+    log.success("本地 tag 创建成功", tag);
     await this.git.pushTags("origin");
-    console.log("远程 tag 推送成功", tag);
+    log.success("远程 tag 推送成功", tag);
   }
 
   // async deleteLocalBranch() {
@@ -203,29 +203,29 @@ class CommitCommand extends Command {
       //创建并切换
       await this.git.checkoutLocalBranch(branchName);
     }
-    console.log(`success 切换本地分支${branchName}`);
+    log.success(`success 切换本地分支${branchName}`);
   }
 
   async pullRemoteMasterAndBranch() {
-    console.log(`正在拉取远程master分支 => ${this.branch}`);
+    log.info(`正在拉取远程master分支 => ${this.branch}`);
     await this.pullRemoteRepo("master");
-    console.log("拉取成功");
+    log.success("拉取成功");
     const remoteBranchList = await this.getRemoteBranchList();
     if (remoteBranchList.indexOf(this.version) >= 0) {
       //拉取远程开发分支
       await this.pullRemoteRepo(this.branch);
     } else {
-      console.log(`远程不存在该分支${this.branch}`);
+      log.error(`远程不存在该分支${this.branch}`);
     }
   }
 
   async checkStash() {
-    console.log("检查 stash 记录");
+    log.info("检查 stash 记录");
     const stashList = await this.git.stashList();
     if (stashList.all.length > 0) {
       try {
         await this.git.stash(["pop"]);
-        console.log("pop stash 成功");
+        log.success("pop stash 成功");
       } catch (err) {
         throw new Error("代码存在冲突,请解决");
       }
@@ -233,10 +233,9 @@ class CommitCommand extends Command {
   }
 
   async getCorrectVersion() {
-    console.log("获取代码分支");
+    log.info("获取代码分支");
     //暂定release 分支 ,后面根据需求再加。。
     const remoteBranchList = await this.getRemoteBranchList("release");
-    console.log(remoteBranchList);
 
     let releaseVersion = null;
     if (remoteBranchList && remoteBranchList.length > 0) {
@@ -250,10 +249,10 @@ class CommitCommand extends Command {
       this.branch = `dev/${devVersion}`;
     } else if (semver.gt(devVersion, releaseVersion)) {
       //开发(dev)版本大于线上版本时
-      console.log("当前版本号大于线上版本号");
+      log.info("当前版本号大于线上版本号");
       this.branch = `dev/${devVersion}`;
     } else {
-      console.log(
+      log.info(
         "当前线上版本号大于本地版本号",
         `${releaseVersion} > ${devVersion}`
       );
@@ -354,19 +353,19 @@ class CommitCommand extends Command {
         });
       }
       await this.git.commit(message);
-      console.log("本地commit 提交成功");
+      log.success("本地commit 提交成功");
     }
   }
 
   async pullRemoteRepo(branch = "master", options = {}) {
-    console.log("本地正同步远程代码pull...");
+    log.info("本地正同步远程代码pull...");
     await this.git.pull("origin", branch, options).catch((err) => {
       console.log(err);
     });
   }
 
   async pushRemoteRepo(branchName) {
-    console.log("push");
+    log.success("push");
     await this.git.push("origin", branchName);
   }
 }
