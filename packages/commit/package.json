@@ -21,8 +21,8 @@
     "url": "https://github.com/fxjzz/fxjzz-cli/issues"
   },
   "dependencies": {
-    "@fxjzz-cli/command": "^1.0.0",
-    "@fxjzz-cli/utils": "^1.0.1",
+    "@fxjzz-cli/command": "workspace:*",
+    "@fxjzz-cli/utils": "workspace:*",
     "chalk": "^5.2.0",
     "figlet": "^1.5.2",
     "fs-extra": "^11.1.1",

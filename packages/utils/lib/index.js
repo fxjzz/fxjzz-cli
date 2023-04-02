@@ -19,14 +19,6 @@ import {
 } from "./git/GitUtils.js";
 import { clearCache } from "./git/GitServer.js";
 
-function printErrorLog(e, type) {
-  if (isDebug()) {
-    log.error(type, e);
-  } else {
-    log.error(type, e.message);
-  }
-}
-
 export {
   initGitCreator,
   clearCache,
@@ -46,6 +38,5 @@ export {
   makeList,
   makeConfirm,
   makeInput,
-  printErrorLog,
 };
 
