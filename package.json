@@ -5,6 +5,9 @@
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "build": "pnpm -F \"@fxjzz-cli/*\" run build"
+  },
   "dependencies": {
     "commander": "^10.0.0",
     "fs-extra": "^11.1.1",
@@ -12,6 +15,9 @@
   },
   "description": "This is a cli I created while learning frontend development, modeled after vue-cli to gain a better understanding of its workings.",
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "unbuild": "^1.2.0"
+  }
 }
 

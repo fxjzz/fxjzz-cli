@@ -5,14 +5,14 @@
   "author": "fxjzz <1042183935@qq.com>",
   "homepage": "https://github.com/fxjzz/fxjzz-cli#readme",
   "license": "MIT",
-  "main": "lib/index.js",
+  "main": "dist/index.mjs",
+  "scripts": {
+    "build": "unbuild"
+  },
   "type": "module",
   "directories": {
     "lib": "lib"
   },
-  "files": [
-    "lib"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fxjzz/fxjzz-cli.git"
