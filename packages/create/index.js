@@ -2,9 +2,8 @@ import path from "node:path";
 import fse from "fs-extra";
 import figlet from "figlet";
 import inquirer from "inquirer";
-import chalk from "chalk";
 import validateProjectName from "validate-npm-package-name";
-import { log } from "@fxjzz-cli/utils";
+import { log, chalk } from "@fxjzz-cli/utils";
 import Creator from "./Creator.js";
 
 async function create(projectName, opts) {

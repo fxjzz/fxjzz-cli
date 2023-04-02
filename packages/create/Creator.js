@@ -1,5 +1,4 @@
 import inquirer from "inquirer";
-import chalk from "chalk";
 import { execa } from "execa";
 import {
   loadModule,
@@ -11,6 +10,7 @@ import {
   hasPnpm3OrLater,
   hasYarn,
   hasPnpmVersionLater,
+  chalk,
 } from "@fxjzz-cli/utils";
 import PromptModuleAPI from "./lib/promptModuleAPI.js";
 import promptModules from "./lib/promptModules/index.js";

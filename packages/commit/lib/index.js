@@ -11,10 +11,10 @@ import {
   clearCache,
   makeInput,
   makeList,
+  chalk,
 } from "@fxjzz-cli/utils";
 import simpleGit from "simple-git";
 import figlet from "figlet";
-import chalk from "chalk";
 
 class CommitCommand extends Command {
   get command() {

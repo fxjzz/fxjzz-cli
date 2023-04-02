@@ -18,8 +18,10 @@ import {
   createRemoteRepo,
 } from "./git/GitUtils.js";
 import { clearCache } from "./git/GitServer.js";
+import chalk from "chalk";
 
 export {
+  chalk,
   initGitCreator,
   clearCache,
   initGitType,
